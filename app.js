@@ -40,7 +40,13 @@
         app.use(bodyParser.urlencoded({extended: true}))
         app.use(bodyParser.json())
     //handlebars
-        app.engine('handlebars', handlebars({defaultLayout: 'main'}))
+        app.engine('handlebars', handlebars.engine({
+            defaultLayout: 'main',
+             runtimeOptions: {
+                allowProtoPropertiesByDefault: true,
+                allowProtoMethodsByDefault: true,
+            },
+        }))
         app.set('view engine', 'handlebars')
     //mongoose
         mongoose.Promise = global.Promise
