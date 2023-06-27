@@ -50,7 +50,7 @@
         app.set('view engine', 'handlebars')
     //mongoose
         mongoose.Promise = global.Promise
-        mongoose.connect(db.mongoURI, { useNewUrlParser:true} ).then(() => {
+        mongoose.connect(db.mongoURI, { useNewUrlParser:true, useUnifiedTopology: true } ).then(() => {
             console.log("Conectado com mongo")
         }).catch((err) => {
             console.log("Erro ao conectar: "+err)
